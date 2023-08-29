@@ -9,21 +9,24 @@ const selectedSong = async () => {
           "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
         },
       });
-      const singleAlbum = await resp.json()
-      console.log(singleAlbum);
+      const songsObject = await resp.json()
+     
       
-      let chosenAlbum = document.getElementById("gaming-tracks")
-      chosenAlbum.innerHTML=`
-      <div class="col custom-cols-w rounded-1 p-0 pointer" id="gaming-tracks">
-      <div class="row w-100 m-0 align-items-center">
-        <div class="col-3 d-flex align-items-center p-0">
-          <img src="${singleAlbum.data[0].album.cover}" class="w-100" />
+      let dynamicAlbums = document.getElementById("dynamic-albums")
+      dynamicAlbums.innerHTML=``;
+      songsObject.data.forEach(song => {
+       dynamicAlbums.innerHTML= `<div class="col custom-cols-w rounded-1 p-0 pointer" id="gaming-tracks">
+        <div class="row w-100 m-0 align-items-center">
+          <div class="col-3 d-flex align-items-center p-0">
+            <img src="${song.album.cover}" class="w-100" />
+          </div>
+          <div class="col-9">
+            <p class="m-0 fw-bold pointer">${song.album.title}</p>
+          </div>
         </div>
-        <div class="col-9">
-          <p class="m-0 fw-bold pointer">${singleAlbum.data[0].album.title}</p>
-        </div>
-      </div>
-    </div>`;
+      </div>`; 
+      });
+      
 
     }
 catch (error) {
