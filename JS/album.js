@@ -1,4 +1,7 @@
-const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/75621062";
+//const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/157681642";
+
+const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const albumId = new URLSearchParams(window.location.search).get("albumId");
 
 function formatDuration(seconds) {
   const hours = Math.floor(seconds / 3600);
@@ -27,7 +30,7 @@ function reverseDate(dateString) {
 
 const albumSong = async () => {
   try {
-    const resp = await fetch(URL, {
+    const resp = await fetch(URL + albumId, {
       method: "GET",
       headers: {
         "X-RapidAPI-Key": "446acbbc21mshddea86ae7700867p1e29b9jsnd56234c5f0d5",
