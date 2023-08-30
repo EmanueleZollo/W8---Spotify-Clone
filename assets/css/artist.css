@@ -4,7 +4,9 @@
 .bg-image {
   background-image: url(../imgs/search/image-49.jpg);
   background-size: cover;
+  object-fit: cover;
 }
+
 .bg-container {
   background: #4d3944;
   background: -moz-linear-gradient(top, #4d3944 0%, #000000 29%, #000000 100%);

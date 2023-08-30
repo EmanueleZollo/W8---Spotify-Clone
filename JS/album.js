@@ -28,7 +28,7 @@ function reverseDate(dateString) {
   return reversedDate;
 }
 
-const albumSong = async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     const resp = await fetch(URL + albumId, {
       method: "GET",
@@ -125,6 +125,4 @@ const albumSong = async () => {
   } catch (error) {
     console.error(error);
   }
-};
-
-albumSong();
+});
