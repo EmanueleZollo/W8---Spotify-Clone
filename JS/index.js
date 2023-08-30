@@ -1,164 +1,189 @@
-const URL = `https://striveschool-api.herokuapp.com/api/deezer/search?q=`;
+const URL = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
-const selectedSong = async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const resp = await fetch(URL + "top gaming tracks", {
+    const resp = await fetch(URL + "gaming tracks", {
       method: "GET",
     });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
 
-    const albumObject = await resp.json();
+    const gamingTracks = document.getElementById("gaming-tracks");
+    gamingTracks.innerHTML = "";
 
-    let gamingTracks = document.getElementById("gaming-tracks");
+    gamingTracks.id = "dynamic-album";
 
-    gamingTracks.addEventListener("click", () => {
-      const tracksId = albumObject.id;
-      window.location.href = `album.html?id=${tracksId}`;
-    });
+    gamingTracks.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
 
-    //gamingTracks.innerHTML = "";
     gamingTracks.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
   } catch (error) {
     console.error(error);
   }
-};
 
-const selectedSong2 = async () => {
   try {
-    const resp = await fetch(URL + "kickass metal", {
+    const resp = await fetch(URL + "kick ass", {
       method: "GET",
     });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
 
-    const albumObject = await resp.json();
+    const kickassMetal = document.getElementById("kickass-metal");
+    kickassMetal.innerHTML = "";
 
-    let kickassMetal = document.getElementById("kickass-metal");
-    //gamingTracks.innerHTML = "";
-    kickassMetal.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
+    kickassMetal.id = "dynamic-album";
+
+    kickassMetal.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    kickassMetal.innerHTML = `<div class="col custom-cols-w rounded-1 p-0 pointer" id="kickass-metal">
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
   } catch (error) {
     console.error(error);
   }
-};
 
-const selectedSong3 = async () => {
   try {
     const resp = await fetch(URL + "punk tracks", {
       method: "GET",
     });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
 
-    const albumObject = await resp.json();
+    const punkTracks = document.getElementById("punk-tracks");
+    punkTracks.innerHTML = "";
 
-    let punkTracks = document.getElementById("punk-tracks");
-    //gamingTracks.innerHTML = "";
+    punkTracks.id = "dynamic-album";
+
+    punkTracks.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
     punkTracks.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
   } catch (error) {
     console.error(error);
   }
-};
 
-const selectedSong4 = async () => {
   try {
     const resp = await fetch(URL + "hits tracks", {
       method: "GET",
     });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
 
-    const albumObject = await resp.json();
+    const hitsTracks = document.getElementById("hits-tracks");
+    hitsTracks.innerHTML = "";
 
-    let hitsTracks = document.getElementById("hits-tracks");
-    //gamingTracks.innerHTML = "";
+    hitsTracks.id = "dynamic-album";
+
+    hitsTracks.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
     hitsTracks.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
   } catch (error) {
     console.error(error);
   }
-};
 
-const selectedSong5 = async () => {
-  try {
-    const resp = await fetch(URL + "sleep tracks", {
-      method: "GET",
-    });
-
-    const albumObject = await resp.json();
-
-    let sleepTracks = document.getElementById("sleep-tracks");
-    //gamingTracks.innerHTML = "";
-    sleepTracks.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-const selectedSong6 = async () => {
   try {
     const resp = await fetch(URL + "muse", {
       method: "GET",
     });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
 
-    const albumObject = await resp.json();
+    const sleepTracks = document.getElementById("sleep-tracks");
+    sleepTracks.innerHTML = "";
 
-    let focusTracks = document.getElementById("focus-tracks");
-    //gamingTracks.innerHTML = "";
-    focusTracks.innerHTML = `
-        <div class="row w-100 m-0 align-items-center">
-          <div class="col-3 d-flex align-items-center p-0">
-            <img src="${albumObject.data[0].album.cover}" class="w-100" />
-          </div>
-          <div class="col-9">
-            <p class="m-0 fw-bold pointer">${albumObject.data[0].album.title}</p>
-          </div>
-        </div>
-      </div>`;
+    sleepTracks.id = "dynamic-album";
+
+    sleepTracks.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    sleepTracks.innerHTML = `
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
   } catch (error) {
     console.error(error);
   }
-};
 
-selectedSong();
-selectedSong2();
-selectedSong3();
-selectedSong4();
-selectedSong5();
-selectedSong6();
+  try {
+    const resp = await fetch(URL + "u2", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const focusTracks = document.getElementById("focus-tracks");
+    focusTracks.innerHTML = "";
+
+    focusTracks.id = "dynamic-album";
+
+    focusTracks.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    focusTracks.innerHTML = `
+    <div class="row w-100 m-0 align-items-center">
+      <div class="col-3 d-flex align-items-center p-0">
+        <img src="${albumSelected.data[0].album.cover}" class="w-100" />
+      </div>
+      <div class="col-9">
+        <p class="m-0 fw-bold pointer">${albumSelected.data[0].album.title}</p>
+      </div>
+    </div>
+  </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+});

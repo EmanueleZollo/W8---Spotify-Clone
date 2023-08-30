@@ -1,5 +1,7 @@
+//const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/157681642";
+
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/album/";
-const tracksId = new URLSearchParams(window.location.search).get("tracksId");
+const albumId = new URLSearchParams(window.location.search).get("albumId");
 
 function formatDuration(seconds) {
   const hours = Math.floor(seconds / 3600);
@@ -26,30 +28,29 @@ function reverseDate(dateString) {
   return reversedDate;
 }
 
-window.onload = () => {
-  const albumSong = async () => {
-    try {
-      const resp = await fetch(URL + tracksId, {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key": "446acbbc21mshddea86ae7700867p1e29b9jsnd56234c5f0d5",
-          "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-        },
-      });
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const resp = await fetch(URL + albumId, {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "446acbbc21mshddea86ae7700867p1e29b9jsnd56234c5f0d5",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    });
 
-      const album = await resp.json();
-      console.log(album);
+    const album = await resp.json();
+    console.log(album);
 
-      const totalSeconds = album.duration;
+    const totalSeconds = album.duration;
 
-      const formattedDuration = formatDuration(totalSeconds);
+    const formattedDuration = formatDuration(totalSeconds);
 
-      const originalDate = album.release_date;
-      const reversedDate = reverseDate(originalDate);
+    const originalDate = album.release_date;
+    const reversedDate = reverseDate(originalDate);
 
-      const infoAlbum = document.getElementById("albumList");
+    const infoAlbum = document.getElementById("albumList");
 
-      infoAlbum.innerHTML = `
+    infoAlbum.innerHTML = `
     <div id="albumList" class="d-flex flex-column align-items-center flex-lg-row mt-4">
             <img src="${album.cover_medium}" class="big-album-image pointer" alt="" />
             <div class="d-flex flex-column ms-4 w-100">
@@ -67,17 +68,17 @@ window.onload = () => {
             </div>
           </div> `;
 
-      const tracksList = document.getElementById("tracks-list");
+    const tracksList = document.getElementById("tracks-list");
 
-      for (let i = 0; i < album.tracks.data.length; i++) {
-        let tracksData = album.tracks.data[i];
+    for (let i = 0; i < album.tracks.data.length; i++) {
+      let tracksData = album.tracks.data[i];
 
-        let trackDuration = tracksData.duration;
-        let trackDurationReader = formatDuration(trackDuration);
+      let trackDuration = tracksData.duration;
+      let trackDurationReader = formatDuration(trackDuration);
 
-        const trackContainer = document.createElement("div");
+      const trackContainer = document.createElement("div");
 
-        /* tracksList.innerHTML = `
+      /* tracksList.innerHTML = `
          <div id="tracks-list" class="d-flex flex-column">
              <div class="row w-100 mx-0 mb-2 mt-1">
                 <div class="col-7 p-0 px-2">
@@ -98,7 +99,7 @@ window.onload = () => {
                 </div>
               </div>`;  */
 
-        trackContainer.innerHTML = `
+      trackContainer.innerHTML = `
       <div id="tracks-list" class="d-flex flex-column">
       <div class="row w-100 mx-0 mb-2 mt-1">
          <div class="col-7 p-0 px-2">
@@ -119,12 +120,9 @@ window.onload = () => {
          </div>
        </div>`;
 
-        tracksList.appendChild(trackContainer);
-      }
-    } catch (error) {
-      console.error(error);
+      tracksList.appendChild(trackContainer);
     }
-  };
-};
-
-albumSong();
+  } catch (error) {
+    console.error(error);
+  }
+});
