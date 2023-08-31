@@ -75,6 +75,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       let trackDurationReader = formatDuration(trackDuration);
 
       const trackContainer = document.createElement("div");
+      trackContainer.onclick = (event) => { 
+        addSongPlayer(tracksData)
+      }
 
       trackContainer.innerHTML = `
       <div id="tracks-list" class="d-flex flex-column">
@@ -83,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
            <div class="d-flex align-items-center">
              <p class="m-0 text-secondary fs-5">${i + 1}</p>
              <div class="d-flex flex-column ms-3">
-               <h6 id="play" style="cursor: pointer" class="m-0">${tracksData.title}</h6>
+               <h6 id="play" style="cursor: pointer" class="m-0" onclick="">${tracksData.title}</h6>
                <p class="m-0 text-secondary" style="cursor: pointer" id="name-artist">${tracksData.artist.name}</p>
              </div>
            </div>
@@ -102,17 +105,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       const play = document.getElementById("play");
       const dynamicPlayer = document.getElementById("dynamic-player");
 
-      play.addEventListener("click", () => {
+      const addSongPlayer = (songData) => {
         dynamicPlayer.innerHTML = "";
 
-        for (let i = 0; i < album.tracks.data.length; i++) {
-          let tracksData = album.tracks.data[i];
-
+        console.log(songData);
+//PLAYER - CANZONE IN ASCOLTO
           dynamicPlayer.innerHTML = `<div class="d-flex align-items-center">
         <div class="d-flex align-items-center">
           <img class="img-player" src="${album.cover_small}" alt="img" />
           <div class="d-flex flex-column justify-content-center mx-3">
-            <h4  class="fs-6 m-0" id="footer-title">${tracksData.title}</h4>
+            <h4  class="fs-6 m-0" id="footer-title>${songData.title_short}</h4>
             <span class="fs-6 m-0" id="footer-artist">${album.artist.name}</span>
           </div>
         </div>
@@ -171,8 +173,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         <i class="bi bi-arrows-angle-expand mx-2 text-white-50"></i>
       </div>
     </div>`;
-        }
-      });
+        
+      };
     }
   } catch (error) {
     console.error(error);
@@ -202,3 +204,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(error);
   }
 });
+
+
+const findSong = function () {
+
+}

@@ -1,3 +1,9 @@
+
+
+
+
+
+// FUNZIONE PER POPOLARE I 6 DIV  DOPO BUONASERA + AVVIO CANZONE DI COPERTINA
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -191,10 +197,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     const resp = await fetch(URL + "chillstep mix", {
       method: "GET",
     });
-
+    
     const albumSelected = await resp.json();
     console.log(albumSelected);
+    const totalSeconds = albumSelected.data[0].duration;
+    console.log(totalSeconds);
+    const formattedDuration = formatDuration(totalSeconds);
 
+    function formatDuration(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const remainingSeconds = seconds % 60;
+    
+      if (hours > 0) {
+        const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+        return formattedTime;
+      } else {
+        const formattedTimeSecond = `${minutes.toString().padStart(1, "0")}:${remainingSeconds
+          .toString()
+          .padStart(2, "0")}`;
+        return formattedTimeSecond;
+      }
+    }
     const buttonPlay = document.getElementById("btn-play");
     const dynamicPlayer = document.getElementById("dynamic-player");
 
@@ -222,7 +248,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="slider_container">
       <div class="current-time">00:00</div>
       <input type="range" min="0" max="100" value="0" class="seek_slider" />
-      <div class="total-duration">3:00</div>
+      <div class="total-duration">${formattedDuration}</div>
     </div>
   </div>
 

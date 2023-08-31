@@ -7,6 +7,7 @@ const albumId = new URLSearchParams(window.location.search).get("albumId");
 console.log("artistId:", artistId);
 console.log("albumId:", albumId);
 
+// FUNZIONE PER IL FORMATO DI TEMPO DELLE CANZONI
 function formatDuration(seconds) {
   const hours = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
@@ -25,6 +26,7 @@ function formatDuration(seconds) {
   }
 }
 
+//CREAZIONE PAGINA DINAMICA PER CIASCUN ARTISTA
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const resp = await fetch(URL + artistId, {
