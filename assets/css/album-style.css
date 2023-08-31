@@ -33,3 +33,11 @@
 .pointer {
   cursor: pointer;
 }
+
+#tracks-list p:first-child {
+  cursor: pointer;
+}
+
+.like:hover {
+  color: #1ed760;
+}

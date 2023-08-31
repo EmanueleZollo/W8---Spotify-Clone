@@ -186,4 +186,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error(error);
   }
+
+  try {
+  } catch (error) {
+    console.error(error);
+  }
 });
