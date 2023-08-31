@@ -4,7 +4,7 @@
 .bg-image {
   background-image: url(../imgs/search/image-49.jpg);
   background-size: cover;
-  object-fit: cover;
+  object-position: top;
 }
 
 .bg-container {
@@ -40,4 +40,8 @@ main {
 
 #imgFriends button {
   height: fit-content;
+}
+
+.like:hover {
+  color: #1ed760;
 }

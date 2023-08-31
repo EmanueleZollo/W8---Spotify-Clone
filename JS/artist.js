@@ -1,13 +1,43 @@
-const URL = "https://striveschool-api.herokuapp.com/api/deezer/artist/412";
-//const artistId = new URLSearchParams(window.location.search).get("artistId");
+const URL = "https://striveschool-api.herokuapp.com/api/deezer/artist/";
+const artistId = new URLSearchParams(window.location.search).get("artistId");
+
+const URL2 = "https://striveschool-api.herokuapp.com/api/deezer/album/";
+const albumId = new URLSearchParams(window.location.search).get("albumId");
+
+console.log("artistId:", artistId);
+console.log("albumId:", albumId);
+
+function formatDuration(seconds) {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  if (hours > 0) {
+    const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+      .toString()
+      .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+    return formattedTime;
+  } else {
+    const formattedTimeSecond = `${minutes.toString().padStart(1, "0")}:${remainingSeconds
+      .toString()
+      .padStart(2, "0")}`;
+    return formattedTimeSecond;
+  }
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const resp = await fetch(URL, {
+    const resp = await fetch(URL + artistId, {
       method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "446acbbc21mshddea86ae7700867p1e29b9jsnd56234c5f0d5",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
     });
     const artistSelected = await resp.json();
     console.log(artistSelected);
+
+    const tracklistURL = artistSelected.tracklist;
 
     const artist = document.getElementById("main-col");
     artist.innerHTML = ` <main class="container-fluid px-0 text-light w-100 bg-black">
@@ -105,10 +135,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           <h4>Brani che ti piacciono</h4>
           <div class="row mt-2">
             <div class="col d-flex align-items-center">
-              <img class="img-like rounded-circle" src="assets/imgs/search/image-13.jpeg" alt="img" />
+              <img class="img-like rounded-circle" src="${artistSelected.picture_small}" alt="img" />
               <div class="d-flex flex-column justify-content-center ms-2">
                 <h6 class="m-0">Hai messo Mi piace a 11 brani</h6>
-                <span class="text-white-50" id="art-name">Di Yellowcard</span>
+                <span class="text-white-50" id="art-name">Di ${artistSelected.name}</span>
               </div>
             </div>
           </div>
@@ -116,97 +146,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="col-12 col-lg-7 mt-2 mt-lg-0">
           <h4>Popolari</h4>
           <div class="row p-0 mt-3" id="artists-tracks">
-          <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
-              <div class="col-7 d-flex align-items-center">
-                <span class="text-white-50">1</span>
-                <img class="w-img ms-3" src="assets/imgs/search/image-10.jpg" alt="img" />
-                <h4 class="mb-0 ms-3 fs-6">Ocean Avenue</h4>
-              </div>
-              <div class="col-3 d-none d-lg-flex">
-                <span class="me-2 text-white-50">276.616.912</span>
-              </div>
-              <div class="col-2">
-                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
-                <span class="text-white-50 d-none d-lg-flex">3:18</span>
-              </div>
-            </div>
-            <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
-              <div class="col-7 d-flex align-items-center">
-                <span class="text-white-50">2</span>
-                <img class="w-img ms-3" src="assets/imgs/search/image-10.jpg" alt="img" />
-                <h4 class="mb-0 ms-3 fs-6">Only One</h4>
-              </div>
-              <div class="col-3 d-none d-lg-flex">
-                <span class="me-2 text-white-50">98.839.244</span>
-              </div>
-              <div class="col-2">
-                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
-                <span class="text-white-50 d-none d-lg-flex">4:17</span>
-              </div>
-            </div>
-            <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
-              <div class="col-7 d-flex align-items-center">
-                <span class="text-white-50">3</span>
-                <img class="w-img ms-3" src="assets/imgs/search/image-10.jpg" alt="img" />
-                <h4 class="mb-0 ms-3 fs-6">Breathing</h4>
-              </div>
-              <div class="col-3 d-none d-lg-flex">
-                <span class="me-2 text-white-50">52.308.097</span>
-              </div>
-              <div class="col-2">
-                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
-                <span class="text-white-50 d-none d-lg-flex">3:38</span>
-              </div>
-            </div>
-            <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
-              <div class="col-7 d-flex align-items-center">
-                <span class="text-white-50">4</span>
-                <img class="w-img ms-3" src="assets/imgs/search/image-10.jpg" alt="img" />
-                <h4 class="mb-0 ms-3 fs-6">Lights And Sounds</h4>
-              </div>
-              <div class="col-3 d-none d-lg-flex">
-                <span class="me-2 text-white-50">48.278.178</span>
-              </div>
-              <div class="col-2">
-                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
-                <span class="text-white-50 d-none d-lg-flex">3:28</span>
-              </div>
-            </div>
-            <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
-              <div class="col-7 d-flex align-items-center">
-                <span class="text-white-50">5</span>
-                <img class="w-img ms-3" src="assets/imgs/search/image-10.jpg" alt="img" />
-                <h4 class="mb-0 ms-3 fs-6">Way Away</h4>
-              </div>
-              <div class="col-3 d-none d-lg-flex">
-                <span class="me-2 text-white-50">43.836.579</span>
-              </div>
-              <div class="col-2">
-                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
-                <span class="text-white-50 d-none d-lg-flex">3:22</span>
-              </div> 
+      
             </div> 
-            <div class="col">
+          
+          <div class="col">
               <a href="#" class="text-white-50 fs-6 text-decoration-none">VISUALIZZA ALTRO</a>
-            </div>
-          </div>
+            </div> 
         </div>
       </div>
     </div>
   </main>`;
 
-    //     const nameArtist = document.getElementById("name-artist");
-    //     nameArtist.innerHTML = "";
+    try {
+      const tracklistResponse = await fetch(tracklistURL);
+      const tracksData = await tracklistResponse.json();
 
-    //     nameArtist.innerHTML = `
-    //     <div class="col">
-    //     <h4 class="fs-6 mb-1 d-none d-lg-flex">
-    //       <i class="bi bi-patch-check-fill text-primary mb-0 me-1"></i>
-    //       <p class="m-0 shadow-txt">Artista verificato</p>
-    //     </h4>
-    //     <h2 id="artist-name" class="shadow-txt fs-1 fw-bolder mb-4">${artistSelected.name}</h2>
-    //     <span id="artist-listener" class="shadow-txt d-none d-lg-flex">${artistSelected.nb_fan} ascoltatori mensili</span>
-    //   </div>`;
+      const artistsTracks = document.getElementById("artists-tracks");
+      artistsTracks.innerHTML = "";
+
+      for (let i = 0; i < 5 && i < tracksData.data.length; i++) {
+        const track = tracksData.data[i];
+        const trackElement = document.createElement("div");
+        trackElement.classList.add("col-12", "d-flex", "align-items-center", "mb-3", "justify-content-between");
+        const formattedDuration = formatDuration(track.duration);
+
+        trackElement.innerHTML = `
+        <div class="col-12 d-flex align-items-center mb-3 justify-content-between">
+              <div class="col-7 d-flex align-items-center">
+                <span class="text-white-50">${i + 1}</span>
+                <img class="w-img ms-3" src="${track.album.cover}" alt="img" />
+                <h4 class="mb-0 ms-3 fs-6">${track.title}</h4>
+              </div>
+              <div class="col-3 d-none d-lg-flex">
+                <span class="me-2 text-white-50">${track.rank}</span>
+              </div>
+              <div class="col-2">
+                <i class="bi bi-three-dots-vertical d-lg-none text-white-50"></i>
+                <span class="text-white-50 d-none d-lg-flex">${formattedDuration}</span>
+              </div>
+            </div>
+            
+            
+      `;
+        artistsTracks.appendChild(trackElement);
+      }
+    } catch (error) {
+      console.error("Errore durante il recupero delle tracce:", error);
+    }
   } catch (error) {
     console.error(error);
   }
