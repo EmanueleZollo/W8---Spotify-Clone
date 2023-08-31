@@ -160,7 +160,7 @@
               <div class="col-9 d-flex flex-column text-light pos-rel">
                 <h6 class="mb-3" id="type-copertina">ALBUM</h6>
                 <h1 class="fw-bold pointer" id="name-copertina">Chillstep Mix</h1>
-                <h6 class="fw-bold pointer" id="album-copertina">Chillstep Music Lab</h6>
+                <h6 class="fw-bold pointer" id="album-copertina">Cosmic Awakening</h6>
                 <p>La migliore musica è regalata dal Team 1!</p>
                 <div class="d-flex">
                   <button class="btn btn-success me-3 px-5 py-2 rounded-5" id="btn-play">Play</button>
@@ -552,8 +552,11 @@
       </div>
     </section>
     <footer class="fixed-bottom bg-black text-light">
-      <div class="container-fluid h-100 d-flex justify-content-between align-items-center d-none d-lg-flex">
-        <div class="d-flex align-items-center">
+      <div
+        class="container-fluid h-100 d-flex justify-content-between align-items-center d-none d-lg-flex"
+        id="dynamic-player"
+      >
+        <div class="d-flex align-items-center invisible">
           <img class="img-player" src="assets/imgs/main/image-10.jpg" alt="img" />
           <div class="d-flex flex-column justify-content-center mx-3">
             <h4 class="fs-6 m-0" id="footer-title">Fat Funny Friens</h4>
@@ -565,16 +568,17 @@
         </div>
         <div class="d-flex flex-column">
           <div class="d-flex align-items-center justify-content-center">
-            <i class="bi bi-shuffle mx-3 fs-4 text-success"></i>
-            <i class="bi bi-skip-start-fill mx-3 fs-4"></i>
-            <i class="bi bi-play-circle-fill mx-3 fs-3 pointer"></i>
-            <i class="bi bi-skip-end-fill mx-3 fs-4"></i>
-            <i class="bi bi-arrow-clockwise mx-3 fs-4 text-success"></i>
+            <i class="bi bi-shuffle mx-3 fs-4 text-success invisible"></i>
+            <i class="bi bi-skip-start-fill mx-3 fs-4 text-secondary"></i>
+            <i class="bi bi-pause-circle-fill text-secondary mx-3 fs-3 pointer"></i>
+
+            <i class="bi bi-skip-end-fill mx-3 fs-4 text-secondary"></i>
+            <i class="bi bi-arrow-clockwise mx-3 fs-4 text-success invisible"></i>
           </div>
           <div class="slider_container">
-            <div class="current-time">00:00</div>
-            <input type="range" min="0" max="100" value="0" class="seek_slider" />
-            <div class="total-duration">00:00</div>
+            <div class="current-time text-secondary">--:--</div>
+            <input type="range" min="0" max="100" value="0" class="seek_slider bg-secondary" />
+            <div class="total-duration text-secondary">--:--</div>
           </div>
         </div>
 
