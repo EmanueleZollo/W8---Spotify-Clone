@@ -60,11 +60,8 @@ const chooseColor = function () {
 
 const costruisciCard = function (oggetti) {
   let row1 = document.getElementById("row-cards-1");
-  //   let row2 = document.getElementById("row-cards-2");
-  //   let row3 = document.getElementById("row-cards-3");
+
   row1.innerHTML = "";
-  //   row2.innerHTML = "";
-  //   row3.innerHTML = "";
 
   for (let i = 0; i < 15; i++) {
     let color = chooseColor();
@@ -78,30 +75,6 @@ const costruisciCard = function (oggetti) {
             </div>
         `;
   }
-  //   for (let i = 5; i < 10; i++) {
-  //     let color = chooseColor();
-  //     row2.innerHTML += `
-  //             <div class="col-5 col-lg-2 rounded-4 card px-1 py-2 position-relative overflow-hidden m-1" style="background-color: ${color}">
-  //                 <h5 class="text-light mb-0 pointer " onclick="fetchTrack('${oggetti[i].id}')">${oggetti[i].title_short}</h5>
-  //                 <p class="m-0 pointer text-light-50" onclick="goToArtist(${oggetti[i].artist.id})">${oggetti[i].artist.name}</p>
-  //                 <div class="d-flex justify-content-end align-items-end position-absolute bottom-0 end-0 ">
-  //                     <img class="w-50 img" src="${oggetti[i].album.cover_medium}" alt="img" onclick="goToAlbum(${oggetti[i].album.id})">
-  //                 </div>
-  //             </div>
-  //         `;
-  //   }
-  //   for (let i = 10; i < 15; i++) {
-  //     let color = chooseColor();
-  //     row3.innerHTML += `
-  //             <div class="col-5 col-lg-2 rounded-4 card px-1 py-2 position-relative overflow-hidden m-1" style="background-color: ${color}">
-  //                 <h5 class="text-light mb-0 pointer" onclick="fetchTrack('${oggetti[i].id}')">${oggetti[i].title_short}</h5>
-  //                 <p class="m-0 pointer text-light-50" onclick="goToArtist(${oggetti[i].artist.id})">${oggetti[i].artist.name}</p>
-  //                 <div class="d-flex justify-content-end align-items-end position-absolute bottom-0 end-0 ">
-  //                     <img class="w-50 img" src="${oggetti[i].album.cover_medium}" alt="img" onclick="goToAlbum(${oggetti[i].album.id})">
-  //                 </div>
-  //             </div>
-  //         `;
-  //   }
 };
 
 const fetchInit = function (par = null) {
