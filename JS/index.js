@@ -19,8 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     };
 
     gamingTracks.innerHTML = `             
-     <div class="w-100 col-lg-4 col-6 rounded-1 p-0 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="gaming-tracks">
-
+     <div class="w-100 col-lg-4 col-6 rounded-1 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="gaming-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected.data[0].album.cover}" class="w-100" />
@@ -46,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    kickassMetal.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="kickass-metal">
+    kickassMetal.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 d-flex align-items-center pointer custom-cols-w"  id="kickass-metal">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected2.data[0].album.cover}" class="w-100" />
@@ -71,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    punkTracks.innerHTML = ` <div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="punkTracks">
+    punkTracks.innerHTML = ` <div class=" w-100 col-lg-4 col-6 rounded-1 d-flex align-items-center pointer custom-cols-w"  id="punkTracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected3.data[0].album.cover}" class="w-100" />
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    hitsTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="hits-tracks">
+    hitsTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="hits-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected4.data[0].album.cover}" class="w-100" />
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    sleepTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="sleep-tracks">
+    sleepTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 d-flex align-items-center pointer custom-cols-w"  id="sleep-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected5.data[0].album.cover}" class="w-100" />
@@ -146,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    focusTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w" id="focus-tracks">
+    focusTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 d-flex align-items-center pointer custom-cols-w" id="focus-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected6.data[0].album.cover}" class="w-100" />
