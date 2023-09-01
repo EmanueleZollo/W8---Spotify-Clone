@@ -13,14 +13,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const gamingTracks = document.getElementById("gaming-tracks");
     gamingTracks.innerHTML = "";
 
-    gamingTracks.id = "dynamic-album";
-
     gamingTracks.onclick = () => {
       const albumId = albumSelected.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    gamingTracks.innerHTML = `
+    gamingTracks.innerHTML = `             
+     <div class="w-100 col-lg-4 col-6 rounded-1 p-0 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="gaming-tracks">
+
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected.data[0].album.cover}" class="w-100" />
@@ -40,14 +40,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const kickassMetal = document.getElementById("kickass-metal");
     kickassMetal.innerHTML = "";
 
-    kickassMetal.id = "dynamic-album";
 
     kickassMetal.onclick = () => {
       const albumId = albumSelected2.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    kickassMetal.innerHTML = `<div class="col custom-cols-w rounded-1 p-0 pointer" id="kickass-metal">
+    kickassMetal.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="kickass-metal">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected2.data[0].album.cover}" class="w-100" />
@@ -65,16 +64,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(albumSelected);
 
     const punkTracks = document.getElementById("punk-tracks");
-    punkTracks.innerHTML = "";
-
-    punkTracks.id = "dynamic-album";
+    punkTracks.innerHTML = ""
 
     punkTracks.onclick = () => {
       const albumId = albumSelected3.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    punkTracks.innerHTML = `
+    punkTracks.innerHTML = ` <div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="punkTracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected3.data[0].album.cover}" class="w-100" />
@@ -92,16 +89,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(albumSelected);
 
     const hitsTracks = document.getElementById("hits-tracks");
-    hitsTracks.innerHTML = "";
-
-    hitsTracks.id = "dynamic-album";
+    hitsTracks.innerHTML = ""
 
     hitsTracks.onclick = () => {
       const albumId = albumSelected4.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    hitsTracks.innerHTML = `
+    hitsTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 justify-content-between d-flex align-items-center pointer custom-cols-w"  id="hits-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected4.data[0].album.cover}" class="w-100" />
@@ -121,14 +116,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const sleepTracks = document.getElementById("sleep-tracks");
     sleepTracks.innerHTML = "";
 
-    sleepTracks.id = "dynamic-album";
-
     sleepTracks.onclick = () => {
       const albumId = albumSelected5.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    sleepTracks.innerHTML = `
+    sleepTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w"  id="sleep-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected5.data[0].album.cover}" class="w-100" />
@@ -148,14 +141,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const focusTracks = document.getElementById("focus-tracks");
     focusTracks.innerHTML = "";
 
-    focusTracks.id = "dynamic-album";
-
     focusTracks.onclick = () => {
       const albumId = albumSelected6.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
-    focusTracks.innerHTML = `
+    focusTracks.innerHTML = `<div class="w-100 col-lg-4 col-6 rounded-1 p-0 d-flex align-items-center pointer custom-cols-w" id="focus-tracks">
     <div class="row w-100 m-0 align-items-center">
       <div class="col-3 d-flex align-items-center p-0">
         <img src="${albumSelected6.data[0].album.cover}" class="w-100" />
