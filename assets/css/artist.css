@@ -45,3 +45,7 @@ main {
 .like:hover {
   color: #1ed760;
 }
+
+.rotate-180 {
+  transform: rotate(180deg);
+}

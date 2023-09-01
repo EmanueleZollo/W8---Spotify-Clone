@@ -1,3 +1,4 @@
+// FUNZIONE PER POPOLARE I 6 DIV  DOPO BUONASERA + AVVIO CANZONE DI COPERTINA
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -194,14 +195,35 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const albumSelected = await resp.json();
     console.log(albumSelected);
+    const totalSeconds = albumSelected.data[0].duration;
+    console.log(totalSeconds);
+    const formattedDuration = formatDuration(totalSeconds);
 
+    function formatDuration(seconds) {
+      const hours = Math.floor(seconds / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const remainingSeconds = seconds % 60;
+
+      if (hours > 0) {
+        const formattedTime = `${hours.toString().padStart(2, "0")}:${minutes
+          .toString()
+          .padStart(2, "0")}:${remainingSeconds.toString().padStart(2, "0")}`;
+        return formattedTime;
+      } else {
+        const formattedTimeSecond = `${minutes.toString().padStart(1, "0")}:${remainingSeconds
+          .toString()
+          .padStart(2, "0")}`;
+        return formattedTimeSecond;
+      }
+    }
     const buttonPlay = document.getElementById("btn-play");
     const dynamicPlayer = document.getElementById("dynamic-player");
+    const songOne = document.getElementById("song-1");
 
     buttonPlay.addEventListener("click", () => {
       dynamicPlayer.innerHTML = `<div class="d-flex align-items-center">
     <div class="d-flex align-items-center">
-      <img class="img-player" src="assets/imgs/main/image-3.jpg" alt="img" />
+      <img class="img-player" src="https://e-cdns-images.dzcdn.net/images/cover/7597ea739f7e67e94aa7ea36880d4efe/500x500-000000-80-0-0.jpg" alt="img" />
       <div class="d-flex flex-column justify-content-center mx-3">
         <h4  class="fs-6 m-0" id="footer-title">${albumSelected.data[0].title}</h4>
         <span class="fs-6 m-0" id="footer-artist">${albumSelected.data[0].artist.name}</span>
@@ -222,7 +244,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="slider_container">
       <div class="current-time">00:00</div>
       <input type="range" min="0" max="100" value="0" class="seek_slider" />
-      <div class="total-duration">3:00</div>
+      <div class="total-duration">${formattedDuration}</div>
     </div>
   </div>
 
@@ -262,8 +284,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     <i class="bi bi-arrows-angle-expand mx-2 text-white-50"></i>
   </div>
 </div>`;
+
+      songOne.innerHTML = `<div class="song ">
+<p class="name my-0" id="badge-song">${albumSelected.data[0].title}</p>
+<p class="artist my-0" id="badge-artist">${albumSelected.data[0].artist.name}</p>
+</div>
+<div class="albumcover"><img
+class="w-100 rotate-180"
+src=${albumSelected.data[0].album.cover}
+alt=""
+/></div>
+<div class="loading">
+<div class="load"></div>
+<div class="load"></div>
+<div class="load"></div>
+<div class="load"></div>
+</div>`;
     });
   } catch (error) {
     console.error(error);
+  }
+
+  let annunciDiv = document.getElementById("classified-ads");
+  let toggleAnnunci = document.getElementById("toggle-annunci");
+  let showAnnunci = document.getElementById("show-annunci");
+
+  if (annunciDiv && toggleAnnunci && showAnnunci) {
+    toggleAnnunci.addEventListener("click", function () {
+      if (annunciDiv.style.display === "none") {
+        annunciDiv.style.display = "block";
+        toggleAnnunci.textContent = "NASCONDI ANNUNCI";
+        showAnnunci.style.display = "none";
+      } else {
+        annunciDiv.style.display = "none";
+        toggleAnnunci.textContent = "MOSTRA ANNUNCI";
+        showAnnunci.style.display = "block";
+      }
+    });
   }
 });

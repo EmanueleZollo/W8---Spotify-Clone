@@ -72,9 +72,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       let tracksData = album.tracks.data[i];
 
       let trackDuration = tracksData.duration;
+
       let trackDurationReader = formatDuration(trackDuration);
 
       const trackContainer = document.createElement("div");
+      trackContainer.onclick = () => {
+        addSongPlayer(tracksData);
+      };
 
       trackContainer.innerHTML = `
       <div id="tracks-list" class="d-flex flex-column">
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
            <div class="d-flex align-items-center">
              <p class="m-0 text-secondary fs-5">${i + 1}</p>
              <div class="d-flex flex-column ms-3">
-               <h6 id="play" style="cursor: pointer" class="m-0">${tracksData.title}</h6>
+               <h6 id="play" style="cursor: pointer" class="m-0" onclick="">${tracksData.title}</h6>
                <p class="m-0 text-secondary" style="cursor: pointer" id="name-artist">${tracksData.artist.name}</p>
              </div>
            </div>
@@ -99,21 +103,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       tracksList.appendChild(trackContainer);
 
-      const play = document.getElementById("play");
       const dynamicPlayer = document.getElementById("dynamic-player");
+      const songOne = document.getElementById("song-1");
 
-      play.addEventListener("click", () => {
+      const addSongPlayer = (songData) => {
         dynamicPlayer.innerHTML = "";
 
-        for (let i = 0; i < album.tracks.data.length; i++) {
-          let tracksData = album.tracks.data[i];
-
-          dynamicPlayer.innerHTML = `<div class="d-flex align-items-center">
+        console.log(songData);
+        //PLAYER - CANZONE IN ASCOLTO
+        dynamicPlayer.innerHTML = `<div class="d-flex align-items-center">
         <div class="d-flex align-items-center">
           <img class="img-player" src="${album.cover_small}" alt="img" />
           <div class="d-flex flex-column justify-content-center mx-3">
-            <h4  class="fs-6 m-0" id="footer-title">${tracksData.title}</h4>
-            <span class="fs-6 m-0" id="footer-artist">${album.artist.name}</span>
+            <h4  class="fs-6 m-0" id="footer-title">${songData.title_short}</h4>
+            <span class="fs-6 m-0" id="footer-artist">${songData.artist.name}</span>
           </div>
         </div>
         <div class="d-flex align-items-center">
@@ -171,8 +174,23 @@ document.addEventListener("DOMContentLoaded", async () => {
         <i class="bi bi-arrows-angle-expand mx-2 text-white-50"></i>
       </div>
     </div>`;
-        }
-      });
+
+        songOne.innerHTML = `<div class="song ">
+    <p class="name my-0  id="badge-song">${songData.title}</p>
+    <p class="artist my-0" id="badge-artist">${songData.artist.name}</p>
+    </div>
+    <div class="albumcover"><img
+    class="w-100 rotate-180"
+    src=${songData.album.cover}
+    alt=""
+    /></div>
+    <div class="loading">
+    <div class="load"></div>
+    <div class="load"></div>
+    <div class="load"></div>
+    <div class="load"></div>
+    </div>`;
+      };
     }
   } catch (error) {
     console.error(error);
@@ -202,3 +220,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(error);
   }
 });
+
+const findSong = function () {};
