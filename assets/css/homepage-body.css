@@ -88,3 +88,7 @@
 .rotate-180 {
   transform: rotate(180deg);
 }
+
+.home:hover {
+  color: white;
+}
