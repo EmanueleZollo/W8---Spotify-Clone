@@ -153,9 +153,13 @@
             </div>
           </div>
           <div class="custom-gradient mt-3 px-2 py-3 d-flex w-100 d-none d-lg-block">
-            <div class="row w-100 align-items-center">
+            <div class="row w-100 align-items-center" id="classified-ads">
               <div class="col-3">
-                <img src="assets/imgs/main/image-3.jpg" class="w-100" id="immagine-copertina" />
+                <img
+                  src="https://e-cdns-images.dzcdn.net/images/cover/7597ea739f7e67e94aa7ea36880d4efe/500x500-000000-80-0-0.jpg"
+                  class="w-100"
+                  id="immagine-copertina"
+                />
               </div>
               <div class="col-9 d-flex flex-column text-light pos-rel">
                 <h6 class="mb-3" id="type-copertina">ALBUM</h6>
@@ -169,7 +173,10 @@
                   </button>
                   <button class="btn btn bg-black fw-bold rounded-5 text-light">...</button>
                 </div>
-                <p class="m-0 annunci text-secondary">NASCONDI ANNUNCI</p>
+                <p class="m-0 annunci text-secondary" id="toggle-annunci">NASCONDI ANNUNCI</p>
+                <p class="m-0 annunci text-secondary" id="show-annunci" style="cursor: pointer; display: none">
+                  MOSTRA ANNUNCI
+                </p>
               </div>
             </div>
           </div>
@@ -250,9 +257,9 @@
             </div>
           </div>
           <h3 class="mt-4 mb-1">Altro di ciò che ti piace</h3>
-          <div>
-            <div class="row row-cols-2 row-cols-lg-4 w-100 g-3 justify-content-between m-0" id="row-album-1">
-              <div class="col-4">
+          <div class="container">
+            <div class="row mb-3">
+              <div class="col-6 col-md-6 col-lg-4">
                 <div class="card bg-dark text-light d-flex flex-column align-items-center">
                   <img src="assets/imgs/main/image-7.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
                   <div class="card-body">
@@ -261,9 +268,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row row-cols-2 row-cols-lg-4 w-100 g-3 justify-content-between m-0 h-auto" id="row-album-2">
-              <div class="col-4">
+
+              <div class="col-6 col-md-6 col-lg-4">
                 <div class="card bg-dark text-light d-flex flex-column align-items-center">
                   <img src="assets/imgs/main/image-11.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
                   <div class="card-body">
@@ -272,9 +278,40 @@
                   </div>
                 </div>
               </div>
+
+              <div class="col-6 col-md-6 col-lg-4">
+                <div class="card bg-dark text-light d-flex flex-column align-items-center">
+                  <img src="assets/imgs/main/image-19.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title pointer">Street Culto</h5>
+                    <p class="card-text font-09">Ascolta le tracce rap più in voga al momento</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="row row-cols-2 row-cols-lg-4 w-100 g-3 justify-content-between m-0 h-auto" id="row-album-3">
-              <div class="col-4">
+
+            <div class="row g-2">
+              <div class="col-6 col-md-6 col-lg-4">
+                <div class="card bg-dark text-light d-flex flex-column align-items-center">
+                  <img src="assets/imgs/main/image-7.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title pointer">Good Morning</h5>
+                    <p class="card-text font-09">Le playlist migliori per un perfetto buongiorno</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6 col-lg-4">
+                <div class="card bg-dark text-light d-flex flex-column align-items-center">
+                  <img src="assets/imgs/main/image-11.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title pointer">Imagine Dragons</h5>
+                    <p class="card-text font-09">Le canzoni di una delle band migliori al mondo</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6 col-lg-4">
                 <div class="card bg-dark text-light d-flex flex-column align-items-center">
                   <img src="assets/imgs/main/image-19.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
                   <div class="card-body">
@@ -493,33 +530,46 @@
                   </svg>
                   <p class="heading">Currently Playing</p>
                 </div>
-                <div class="loader mt-1">
+                <div class="loader mt-1" id="song-1">
                   <div class="song">
-                    <p class="name my-0" id="badge-song">Song 1</p>
-                    <p class="artist my-0" id="badge-artist">Artist 1</p>
+                    <p class="name my-0" id="badge-song"></p>
+                    <p class="artist my-0" id="badge-artist"></p>
                   </div>
-                  <div class="albumcover"></div>
-                  <div class="loading">
+                  <div class="albumcover bg-secondary"></div>
+                  <!-- <div class="loading">
                     <div class="load"></div>
                     <div class="load"></div>
                     <div class="load"></div>
                     <div class="load"></div>
-                  </div>
-                </div>
-                <div class="loader">
-                  <div class="song">
-                    <p class="name my-0">Song 2</p>
-                    <p class="artist my-0">Artist 2</p>
-                  </div>
-                  <div class="albumcover"></div>
+                  </div> -->
                   <div class="play"></div>
                 </div>
                 <div class="loader">
                   <div class="song">
-                    <p class="name my-0">Song 3</p>
-                    <p class="artist my-0">Artist 3</p>
+                    <p class="name my-0">Uprising</p>
+                    <p class="artist my-0">Muse</p>
                   </div>
-                  <div class="albumcover"></div>
+                  <div class="albumcover">
+                    <img
+                      class="w-100 rotate-180"
+                      src="https://e-cdns-images.dzcdn.net/images/cover/79845461299661387ade37f8e34d643c/250x250-000000-80-0-0.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="play"></div>
+                </div>
+                <div class="loader">
+                  <div class="song">
+                    <p class="name my-0">Albachiara</p>
+                    <p class="artist my-0">Vasco Rossi</p>
+                  </div>
+                  <div class="albumcover">
+                    <img
+                      class="w-100 rotate-180"
+                      src="https://e-cdns-images.dzcdn.net/images/cover/bf773d0c35f850652e5c0a0df93db7b7/250x250-000000-80-0-0.jpg"
+                      alt=""
+                    />
+                  </div>
                   <div class="play"></div>
                 </div>
               </div>
