@@ -1,6 +1,5 @@
 // FUNZIONE PER POPOLARE I 6 DIV  DOPO BUONASERA + AVVIO CANZONE DI COPERTINA
 const URL = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
-const endpointTrack = "https://striveschool-api.herokuapp.com/api/deezer/track/";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const kickassMetal = document.getElementById("kickass-metal");
     kickassMetal.innerHTML = "";
 
-
     kickassMetal.onclick = () => {
       const albumId = albumSelected2.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
@@ -63,7 +61,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(albumSelected);
 
     const punkTracks = document.getElementById("punk-tracks");
-    punkTracks.innerHTML = ""
 
     punkTracks.onclick = () => {
       const albumId = albumSelected3.data[0].album.id;
@@ -88,7 +85,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log(albumSelected);
 
     const hitsTracks = document.getElementById("hits-tracks");
-    hitsTracks.innerHTML = ""
 
     hitsTracks.onclick = () => {
       const albumId = albumSelected4.data[0].album.id;
@@ -294,8 +290,6 @@ alt=""
     const goodMorning = document.getElementById("good-morning");
     goodMorning.innerHTML = "";
 
-    // goodMorning.id = "dynamic-album";
-
     goodMorning.onclick = () => {
       const albumId = albumSelected.data[4].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
@@ -321,8 +315,6 @@ alt=""
     const imagineDragons = document.getElementById("imagine-dragons");
     imagineDragons.innerHTML = "";
 
-    // imagineDragons.id = "dynamic-album";
-
     imagineDragons.onclick = () => {
       const albumId = albumSelected2.data[6].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
@@ -347,8 +339,6 @@ alt=""
     const streetCulto = document.getElementById("street-culto");
     streetCulto.innerHTML = "";
 
-    // streetCulto.id = "dynamic-album";
-
     streetCulto.onclick = () => {
       const albumId = albumSelected3.data[0].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
@@ -372,8 +362,6 @@ alt=""
     const estate2022 = document.getElementById("estate-2022");
     estate2022.innerHTML = "";
 
-    // estate2022.id = "dynamic-album";
-
     estate2022.onclick = () => {
       const albumId = albumSelected4.data[1].id;
       window.location.href = `./album.html?albumId=${albumId}`;
@@ -396,8 +384,6 @@ alt=""
 
     const mood = document.getElementById("mood");
     mood.innerHTML = "";
-
-    // mood.id = "dynamic-album";
 
     mood.onclick = () => {
       const albumId = albumSelected5.data[1].album.id;
@@ -425,7 +411,7 @@ alt=""
     // jazz.id = "dynamic-album";
 
     jazz.onclick = () => {
-      const albumId = albumSelected6.data[0].album.id;
+      const albumId = albumSelected6.data[5].album.id;
       window.location.href = `./album.html?albumId=${albumId}`;
     };
 
@@ -446,8 +432,6 @@ alt=""
 
     const guitar = document.getElementById("guitar");
     guitar.innerHTML = "";
-
-    // guitar.id = "dynamic-album";
 
     guitar.onclick = () => {
       const albumId = albumSelected7.data[0].album.id;
@@ -471,8 +455,6 @@ alt=""
 
     const afro = document.getElementById("afro");
     afro.innerHTML = "";
-
-    // afro.id = "dynamic-album";
 
     afro.onclick = () => {
       const albumId = albumSelected8.data[0].album.id;

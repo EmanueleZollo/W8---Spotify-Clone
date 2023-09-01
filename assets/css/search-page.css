@@ -98,3 +98,7 @@ svg {
 .img {
   transform: rotate(15deg);
 }
+
+.home:hover {
+  color: white;
+}

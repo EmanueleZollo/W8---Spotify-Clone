@@ -46,6 +46,7 @@ const fetchTrack = function (id) {
     .then((data) => {
       console.log(data);
       selectedTrack = data.preview;
+
       document.querySelector(".img-player").src = data.album.cover_medium;
       document.getElementById("footer-title").innerText = data.title_short;
       document.getElementById("footer-artist").innerText = data.artist.name;
