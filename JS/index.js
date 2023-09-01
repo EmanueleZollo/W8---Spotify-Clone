@@ -305,6 +305,240 @@ alt=""
     console.error(error);
   }
 
+  try {
+    const resp = await fetch(URL + "good morning", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const goodMorning = document.getElementById("good-morning");
+    goodMorning.innerHTML = "";
+
+    goodMorning.id = "dynamic-album";
+
+    goodMorning.onclick = () => {
+      const albumId = albumSelected.data[4].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    goodMorning.innerHTML = `
+      <div class="col" id="good-morning">
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+        <img src="assets/imgs/main/image-7.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title pointer">Good Morning</h5>
+          <p class="card-text font-09">Le playlist migliori per un perfetto buongiorno</p>
+        </div>
+      </div>
+    </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+  try {
+    const resp = await fetch(URL + "imagine dragons", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const imagineDragons = document.getElementById("imagine-dragons");
+    imagineDragons.innerHTML = "";
+
+    imagineDragons.id = "dynamic-album";
+
+    imagineDragons.onclick = () => {
+      const albumId = albumSelected.data[6].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    imagineDragons.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+      <img src="assets/imgs/main/image-11.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title pointer">Imagine Dragons</h5>
+        <p class="card-text font-09">Le canzoni di una delle band migliori al mondo</p>
+      </div>
+    </div>
+  </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "street culto", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const streetCulto = document.getElementById("street-culto");
+    streetCulto.innerHTML = "";
+
+    streetCulto.id = "dynamic-album";
+
+    streetCulto.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    streetCulto.innerHTML = `
+     <div class="card bg-dark text-light d-flex flex-column align-items-center">
+     <img src="assets/imgs/main/image-19.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+     <div class="card-body">
+       <h5 class="card-title pointer">Street Culto</h5>
+       <p class="card-text font-09">Ascolta le tracce rap più in voga al momento</p>
+     </div>
+   </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "estate 2022", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const estate2022 = document.getElementById("estate-2022");
+    estate2022.innerHTML = "";
+
+    estate2022.id = "dynamic-album";
+
+    estate2022.onclick = () => {
+      const albumId = albumSelected.data[1].id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    estate2022.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+      <img src="assets/imgs/main/image-18.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title pointer text-start">Estate 2022</h5>
+        <p class="card-text font-09">Le migliori hit in un solo album!</p>
+      </div>
+    </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "mood booster", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const mood = document.getElementById("mood");
+    mood.innerHTML = "";
+
+    mood.id = "dynamic-album";
+
+    mood.onclick = () => {
+      const albumId = albumSelected.data[1].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    mood.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+      <img src="./assets/imgs/search/image-51.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title pointer">Mood Booster</h5>
+        <p class="card-text font-09">Le playlist migliori per un perfetto buongiorno</p>
+      </div>
+    </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "jazz", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const jazz = document.getElementById("jazz");
+    jazz.innerHTML = "";
+
+    jazz.id = "dynamic-album";
+
+    jazz.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    jazz.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+      <img src="./assets/imgs/search/image-20.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title pointer">Jazz Appreciation</h5>
+        <p class="card-text font-09">Ascolta le tracce jazz più in voga al momento</p>
+      </div>
+    </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "peaceful guitar", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const guitar = document.getElementById("guitar");
+    guitar.innerHTML = "";
+
+    guitar.id = "dynamic-album";
+
+    guitar.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    guitar.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+                    <img src="./assets/imgs/search/image-24.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title pointer">Peaceful Guitar</h5>
+                      <p class="card-text font-09">Ascolta le tracce rap più in voga al momento</p>
+                    </div>
+                  </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
+  try {
+    const resp = await fetch(URL + "afro hits", {
+      method: "GET",
+    });
+    const albumSelected = await resp.json();
+    console.log(albumSelected);
+
+    const afro = document.getElementById("afro");
+    afro.innerHTML = "";
+
+    afro.id = "dynamic-album";
+
+    afro.onclick = () => {
+      const albumId = albumSelected.data[0].album.id;
+      window.location.href = `./album.html?albumId=${albumId}`;
+    };
+
+    afro.innerHTML = `
+      <div class="card bg-dark text-light d-flex flex-column align-items-center">
+                    <img src="./assets/imgs/search/image-28.jpg" class="card-img-top custom-img-card mt-2" alt="..." />
+                    <div class="card-body">
+                      <h5 class="card-title pointer">Afro Hits</h5>
+                      <p class="card-text font-09">Ascolta le tracce afro più in voga al momento</p>
+                    </div>
+                  </div>`;
+  } catch (error) {
+    console.error(error);
+  }
+
   let annunciDiv = document.getElementById("classified-ads");
   let toggleAnnunci = document.getElementById("toggle-annunci");
   let showAnnunci = document.getElementById("show-annunci");
